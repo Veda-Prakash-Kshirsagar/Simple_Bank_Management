@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Account List</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="D:\Spring\Spring_Angular\Angular\BankFrontend\src\app\account-list\account-list.component.ts"/>
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="container">
+                <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Account Holder</th>
+                        <th>Balance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngIf="account">
+                        <td>{{account.id}}</td>
+                        <td>{{account.accountHolder}}</td>
+                        <td>{{account.balance}}</td>  
+                      </tr>
+                    </tbody>
+                  </table>
+        
+                    <form [formGroup]="updateForm" (ngSubmit)="onDeposit()">
+                        <label for="amount">Enter amount to deposit</label><br/>
+                        <input name="amount" formControlName="amount" id="amount" placeholder="eg: 2000"/>
+                        <br/><br/>
+                        <button type="submit" class="btn btn-success" [disabled]="!updateForm.valid">Deposit</button>
+                    
+                    </form><br/>
+                    
+                 
+        </div>
+        </div>
+    </body>
+</html>
